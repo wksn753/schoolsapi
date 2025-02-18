@@ -3,7 +3,7 @@ import path from 'path';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import os from 'os';
-import { Student } from './models/Student.js';
+import Student  from './models/Student.js';
 const app = express();
 
 const port = parseInt(process.env.PORT) || process.argv[3] || 8080;
