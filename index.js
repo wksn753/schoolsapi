@@ -51,7 +51,7 @@ app.post('/Students', async (req, res) => {
         const data = await Student.find({}).maxTimeMS(5000);
         res.json(data);
     } catch (err) {
-        res.status(500).send("The request has timed out. Please check your connection and try again.");
+        res.status(500).send("The request has timed out. Please check your connection and try again."+err);
     }
 });
 
