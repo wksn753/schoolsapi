@@ -32,7 +32,7 @@ const getServerIP = () => {
 const serverIP = getServerIP();
 console.log(`Server IP Address: ${serverIP}`);
 // Database connectivity
-const dbUrl = "mongodb+srv://wksn75321:Tst800vtymnureop@netbettestcluster.stemz.mongodb.net/LiveGenericSchoolsDB?retryWrites=true&w=majority&appName=netbettestcluster";
+const dbUrl = "mongodb+srv://wksn753:Tst800vtymnureop@netbettestcluster.stemz.mongodb.net/LiveGenericSchoolsDB?retryWrites=true&w=majority&appName=netbettestcluster";
 
 mongoose.connect(dbUrl, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
