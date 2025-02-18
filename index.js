@@ -3,11 +3,10 @@ import path from 'path';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import os from 'os';
+import { Student } from './models/Student.js';
 const app = express();
 
 const port = parseInt(process.env.PORT) || process.argv[3] || 8080;
-
-
 
 app.use(cors());
 app.use(express.static(path.join(process.cwd(), 'public')))
@@ -52,6 +51,7 @@ app.post('/Students', async (req, res) => {
         res.json(data);
     } catch (err) {
         console.log('Connection error',err);
+
         res.status(500).send("The request has timed out. Please check your connection and try again. "+err);
     }
 });
@@ -66,6 +66,7 @@ app.post('/CreateStudent', async (req, res) => {
       res.status(400).json({ error: err.message });
   }
 });
+
 
 app.get('/', (req, res) => {
     res.render('index');
