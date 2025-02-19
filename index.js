@@ -59,7 +59,28 @@ app.post('/Students', async (req, res) => {
 app.post('/CreateStudent', async (req, res) => {
   try {
       const studentData = req.body; // Assume the student data is sent in the request body
-      const newStudent = new Student(studentData);
+      
+        // Define required fields
+        const requiredFields = [
+            'FirstName',
+            'DateOfBirth',
+            'Gender',
+            'CreatedBy',
+            'RecordDate'
+        ];
+
+        // Check for missing fields
+        const missingFields = requiredFields.filter(field => !studentData[field]);
+
+        if (missingFields.length > 0) {
+            return res.status(400).json({
+                error: `Missing required fields: ${missingFields.join(', ')}`
+            });
+        }
+      
+      const newStudent = new Student({...studentData,
+        StudentID:"SID_"+ new mongoose.Types.ObjectId().toString()
+      });
       await newStudent.save();
       res.status(201).json(newStudent);
   } catch (err) {
