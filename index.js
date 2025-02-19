@@ -76,6 +76,18 @@ app.post('/CreateStudent', async (req, res) => {
         
         console.log(req.body);
 
+        const exists= await  Student.findOne({
+            FirstName: studentData.FirstName,
+            SurName: studentData.SurName,
+            DateOfBirth: studentData.DateOfBirth
+        })
+
+        if(exists){
+            return res.status(400).json({
+                error: `Student already exists`
+            });
+        }
+
         if (missingFields.length > 0) {
             return res.status(400).json({
                 error: `Missing required fields: ${missingFields.join(', ')}`
