@@ -8,11 +8,11 @@ const app = express();
 
 const port = parseInt(process.env.PORT) || process.argv[3] || 8080;
 
+app.use(express.json()); // Add this line to parse JSON bodies
 app.use(cors());
 app.use(express.static(path.join(process.cwd(), 'public')))
    .set('views', path.join(process.cwd(), 'views'))
    .set('view engine', 'ejs');
-
 // Function to get the server's IP address
 const getServerIP = () => {
   const interfaces = os.networkInterfaces();
