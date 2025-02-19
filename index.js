@@ -56,6 +56,8 @@ app.post('/Students', async (req, res) => {
     }
 });
 
+
+
 app.post('/CreateStudent', async (req, res) => {
   try {
       const studentData = req.body; // Assume the student data is sent in the request body
