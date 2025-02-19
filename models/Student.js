@@ -10,6 +10,10 @@ const studentSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    SurName: {
+        type: String,
+        required: true
+    },
     DateOfBirth: {
         type: Date,
         required: true
