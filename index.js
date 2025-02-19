@@ -71,6 +71,8 @@ app.post('/CreateStudent', async (req, res) => {
 
         // Check for missing fields
         const missingFields = requiredFields.filter(field => !studentData[field]);
+        
+        console.log(req.body);
 
         if (missingFields.length > 0) {
             return res.status(400).json({
